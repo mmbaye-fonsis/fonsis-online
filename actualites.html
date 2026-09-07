@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Actualités — FONSIS</title>
+<meta name="description" content="Toutes les actualités et opportunités du FONSIS." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="actualites" data-nav-i18n-only>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 44 24" aria-hidden="true">
+        <circle cx="15" cy="12" r="10" fill="none" stroke="#fff" stroke-width="3"/>
+        <circle cx="29" cy="12" r="10" fill="none" stroke="#E9C530" stroke-width="3"/>
+      </svg>
+      <span>FONSIS</span>
+    </a>
+    <div class="nav-links">
+      <div class="nav-item">
+        <a href="mission.html" data-page="mission">
+          <span data-i18n="nav_qui">À propos</span>
+          <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4"/></svg>
+        </a>
+        <div class="nav-drop">
+          <a href="mission.html" data-i18n="drop_presentation">Présentation</a>
+          <a href="mot-du-directeur.html" data-i18n="drop_dg">Mot du DG</a>
+          <a href="mission.html#comite" data-i18n="drop_comite">Comité de direction</a>
+          <a href="mission.html#gouvernance" data-i18n="nav_gouv">Gouvernance</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="index.html#secteurs">
+          <span data-i18n="nav_invest">Investissements</span>
+          <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4"/></svg>
+        </a>
+        <div class="nav-drop">
+          <a href="index.html#secteurs" data-i18n="drop_secteurs">Secteurs stratégiques</a>
+          <a href="index.html#filiales" data-i18n="filiales_eyebrow">Filiales &amp; véhicules</a>
+          <a href="index.html#empreinte" data-i18n="footprint_eyebrow">Présence sur le territoire</a>
+          <a href="index.html#collaborer" data-i18n="hero_cta2">Soumission de projet</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="actualites.html" data-page="actualites">
+          <span data-i18n="nav_actu">Actualités</span>
+          <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4"/></svg>
+        </a>
+        <div class="nav-drop">
+          <a href="actualites.html" data-i18n="nav_actu">Actualités</a>
+          <a href="index.html#publications" data-i18n="pub_eyebrow">Publications</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="index.html#collaborer" data-i18n="nav_carrieres">Carrières</a></div>
+      <div class="nav-item"><a href="contact.html" data-page="contact" data-i18n="nav_contact">Contact</a></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <div class="lang-toggle" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" class="active">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="nav-cta" href="index.html#collaborer" data-i18n="nav_cta">Soumettre un projet</a>
+    </div>
+  </div>
+</nav>
+<main>
+
+<section class="page-header">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Accueil</a><span class="sep">/</span><span>Actualités</span></div>
+    <div class="eyebrow on-dark">Médiathèque</div>
+    <h1 style="margin-top:14px;">Actualités</h1>
+    <p class="lede">Les dernières nouvelles, opportunités et événements du FONSIS.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="filter-row" id="filterRow">
+      <button class="filter-chip active" data-filter="all">Toutes</button>
+      <button class="filter-chip" data-filter="actualite">Actualité</button>
+      <button class="filter-chip" data-filter="opportunite">Opportunité</button>
+    </div>
+    <div class="news-grid" id="newsGrid">
+      <a class="news-card" href="article.html" data-cat="opportunite">
+        <div class="news-photo"><img src="assets/img/water-hands.jpg" alt="Projet Grand Transfert d'Eau" /></div>
+        <div class="news-body">
+          <span class="news-date mono">27 AOÛT 2026</span>
+          <div class="news-title">Projet Grand Transfert d'Eau (GTE)</div>
+          <div class="news-cat">Opportunité</div>
+        </div>
+      </a>
+      <a class="news-card" href="article.html" data-cat="actualite">
+        <div class="news-photo"><img src="assets/img/gamou-kaolack-crop.jpg" alt="Gamou Kaolack 2026" /></div>
+        <div class="news-body">
+          <span class="news-date mono">24 AOÛT 2026</span>
+          <div class="news-title">Gamou Kaolack 2026</div>
+          <div class="news-cat">Actualité</div>
+        </div>
+      </a>
+      <a class="news-card" href="article.html" data-cat="actualite">
+        <div class="news-photo"><img src="assets/img/gamou-tivaouane-crop.jpg" alt="Gamou Tivaouane 2026" /></div>
+        <div class="news-body">
+          <span class="news-date mono">21 AOÛT 2026</span>
+          <div class="news-title">Gamou Tivaouane 2026</div>
+          <div class="news-cat">Actualité</div>
+        </div>
+      </a>
+      <a class="news-card" href="article.html" data-cat="actualite">
+        <div class="news-photo"><img src="assets/img/concours-general-crop.jpg" alt="Concours Général 2026" /></div>
+        <div class="news-body">
+          <span class="news-date mono">07 AOÛT 2026</span>
+          <div class="news-title">Concours Général 2026</div>
+          <div class="news-cat">Actualité</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer id="contact">
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <a class="brand" href="index.html">
+            <svg viewBox="0 0 44 24" aria-hidden="true">
+              <circle cx="15" cy="12" r="10" fill="none" stroke="#fff" stroke-width="3"/>
+              <circle cx="29" cy="12" r="10" fill="none" stroke="#E9C530" stroke-width="3"/>
+            </svg>
+            <span>FONSIS</span>
+          </a>
+          <p data-i18n="foot_brand_p">Le FONSIS est le bras financier de l'État pour les investissements stratégiques, en partenariat avec le secteur privé. Il gère les actifs stratégiques de l'État dans une logique de création de valeur et de rentabilité de long terme.</p>
+        </div>
+        <div class="foot-col">
+          <h5 data-i18n="foot_col1_h5">Qui sommes‑nous</h5>
+          <ul>
+            <li><a href="mission.html" data-i18n="foot_col1_li1">Présentation</a></li>
+            <li><a href="mot-du-directeur.html" data-i18n="foot_col1_li2">Mot du DG</a></li>
+            <li><a href="mission.html#gouvernance" data-i18n="foot_col1_li3">Gouvernance</a></li>
+            <li><a href="mission.html#comite" data-i18n="foot_col1_li4">Notre équipe</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5 data-i18n="foot_col2_h5">Investissements</h5>
+          <ul>
+            <li><a href="index.html#secteurs" data-i18n="foot_col2_li1">Portefeuille</a></li>
+            <li><a href="index.html#collaborer" data-i18n="foot_col2_li2">Soumission de projet</a></li>
+            <li><a href="#" data-i18n="foot_col2_li3">Politique ESG</a></li>
+            <li><a href="#" data-i18n="foot_col2_li4">Finance verte</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5 data-i18n="foot_col3_h5">Opportunités</h5>
+          <ul>
+            <li><a href="index.html#collaborer" data-i18n="foot_col3_li1">Appels d'offres</a></li>
+            <li><a href="index.html#collaborer" data-i18n="foot_col3_li2">Appels à projet</a></li>
+            <li><a href="index.html#collaborer" data-i18n="foot_col3_li3">Appels à partenariat</a></li>
+            <li><a href="#" data-i18n="foot_col3_li4">Carrières</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5 data-i18n="foot_col4_h5">Médiathèque</h5>
+          <ul>
+            <li><a href="actualites.html" data-i18n="foot_col4_li1">Actualités</a></li>
+            <li><a href="#" data-i18n="foot_col4_li2">Lettre de l'investisseur</a></li>
+            <li><a href="index.html#publications" data-i18n="foot_col4_li3">Rapports annuels</a></li>
+            <li><a href="#" data-i18n="foot_col4_li4">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <div>
+          <div class="copy mono" data-i18n="foot_addr_line1">FONDS SOUVERAIN D'INVESTISSEMENTS STRATÉGIQUES</div>
+          <div class="copy mono" style="margin-top:4px;">Immeuble FONSIS, Corniche Ouest x Rue Léon Gontran Damas, Fann Résidence, Dakar — Sénégal</div>
+          <div class="copy mono" style="margin-top:4px;">contact@fonsis.org · +221 33 869 63 69</div>
+        </div>
+        <div class="foot-social">
+          <a href="https://www.linkedin.com/company/fonsis" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.1 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.5V23h-4.5V8.25zM8.5 8.25h4.31v2.02h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.86V23h-4.5v-6.4c0-1.53-.03-3.5-2.13-3.5-2.14 0-2.47 1.67-2.47 3.39V23h-4.5V8.25z"/></svg></a>
+          <a href="https://x.com/FonsisOfficiel" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23.3 22H16.6l-5.2-6.8L5.4 22H2.3l8.1-9.3L1.5 2h6.9l4.7 6.2L18.9 2zm-1.2 18h1.7L7.4 4H5.6l12.1 16z"/></svg></a>
+          <a href="https://www.facebook.com/fonsis.org" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-bottom" style="border-top:1px solid var(--line-on-dark); margin-top:4px; padding-top:22px;">
+        <div class="legal-links">
+          <a href="#" data-i18n="foot_legal1">Avis de confidentialité</a>
+          <a href="#" data-i18n="foot_legal2">Clause de non‑responsabilité</a>
+        </div>
+        <div class="copy mono" data-i18n="foot_copy">FONSIS © 2026 — Tous droits réservés</div>
+      </div>
+    </div>
+  </footer>
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
