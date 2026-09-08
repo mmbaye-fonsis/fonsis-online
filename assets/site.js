@@ -62,10 +62,15 @@
   }
 
   // ---- Nav active state: by scroll position (in-page sections, homepage) ----
+  // Tracks either a plain "#id" href, or a nav item whose real destination is
+  // another page but that still has a matching teaser section on this page
+  // (marked with data-section="id", since its href isn't a "#..." anchor).
   var navByHash = {};
   document.querySelectorAll('.nav-item > a').forEach(function(a){
     var href = a.getAttribute('href');
-    if(href && href.charAt(0)==='#') navByHash[href] = a;
+    var section = a.getAttribute('data-section');
+    if(section) navByHash['#' + section] = a;
+    else if(href && href.charAt(0)==='#') navByHash[href] = a;
   });
   var sections = Object.keys(navByHash).map(function(h){ return document.querySelector(h); }).filter(Boolean);
   if('IntersectionObserver' in window && sections.length){
