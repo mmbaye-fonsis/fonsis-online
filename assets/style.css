@@ -396,7 +396,7 @@
 .page-header{
   background:linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-light) 100%);
   color:var(--on-navy);
-  padding:38px clamp(20px,4vw,56px) 32px;
+  padding:38px 0 32px;
 }
 .breadcrumb{display:flex; gap:8px; align-items:center; font-size:12.5px; color:var(--on-navy-soft); margin-bottom:16px;}
 .breadcrumb a:hover{color:#fff;}
@@ -426,7 +426,7 @@
   content:""; position:absolute; inset:0;
   background:linear-gradient(0deg, rgba(19,36,51,0.94) 15%, rgba(19,36,51,0.6) 60%, rgba(19,36,51,0.3) 100%);
 }
-.page-header.has-cover .wrap{position:relative; z-index:2; padding-top:60px; padding-bottom:36px;}
+.page-header.has-cover .wrap{position:relative; z-index:2; width:100%; padding-top:60px; padding-bottom:36px;}
 .page-header.has-cover .breadcrumb, .page-header.has-cover .breadcrumb a{color:rgba(244,246,247,0.75);}
 
 /* ---------- article body typography ---------- */
