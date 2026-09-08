@@ -210,7 +210,13 @@
   .section{padding:68px 0;}
   .section.alt{background:var(--paper-2);}
   .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:32px; flex-wrap:wrap;}
-  .section-head h2{font-size:clamp(24px,2.8vw,34px); max-width:22ch; text-transform:uppercase; letter-spacing:.02em; color:var(--navy-deep);}
+  .section-head h2{font-size:clamp(24px,2.8vw,34px); max-width:36ch; text-transform:uppercase; letter-spacing:.02em; color:var(--navy-deep);}
+  /* Paired with a .section-kicker, the title keeps a narrower column so the
+     two sit in visual balance; alone, it's free to use more of the row so a
+     short title doesn't strand a huge gap of dead space beside it on wide
+     screens (and reads calmer as 1-2 lines instead of stacking one word
+     per line). */
+  .section-head:has(.section-kicker) h2{max-width:22ch;}
   .section-kicker{max-width:34ch; color:var(--navy-mist); font-size:15px; text-align:right;}
   @media (max-width:720px){.section-kicker{text-align:left;}}
 
