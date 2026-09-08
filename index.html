@@ -63,7 +63,18 @@
         <button type="button" data-lang="fr" class="active">FR</button>
         <button type="button" data-lang="en">EN</button>
       </div>
-      <a class="nav-cta" href="#collaborer" data-i18n="nav_cta">Soumettre un projet</a>
+      <div class="nav-search">
+        <button type="button" class="search-toggle" id="searchToggle" aria-label="Rechercher" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <div class="search-panel" id="searchPanel">
+          <div class="search-field">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher sur le site" autocomplete="off" />
+          </div>
+          <div class="search-results" id="searchResults"></div>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

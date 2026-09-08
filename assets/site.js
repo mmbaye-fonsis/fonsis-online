@@ -133,6 +133,116 @@
     });
   }
 
+  // ---- Site search (replaces the nav CTA button) ----
+  var searchToggle = document.getElementById('searchToggle');
+  if(searchToggle){
+    var searchPanel = document.getElementById('searchPanel');
+    var searchInput = document.getElementById('searchInput');
+    var searchResults = document.getElementById('searchResults');
+    var isHome = !document.body.getAttribute('data-page') && !document.body.hasAttribute('data-nav-i18n-only');
+    var prefix = isHome ? '' : 'index.html';
+
+    var INDEX = [
+      {t:'Accueil', c:'Page', u:'index.html'},
+      {t:'Mission', c:'Page', u:'mission.html'},
+      {t:'Mot du Directeur Général', c:'Page', u:'mot-du-directeur.html'},
+      {t:'Actualités', c:'Page', u:'actualites.html'},
+      {t:'Contact', c:'Page', u:'contact.html'},
+      {t:'Eau & Énergie', c:'Secteur', u:prefix+'#secteurs'},
+      {t:'Agrobusiness', c:'Secteur', u:prefix+'#secteurs'},
+      {t:'Santé & Pharma', c:'Secteur', u:prefix+'#secteurs'},
+      {t:'Infrastructures & Transports', c:'Secteur', u:prefix+'#secteurs'},
+      {t:'We Fund', c:'Filiale', u:prefix+'#filiales'},
+      {t:'Kajom Capital', c:'Filiale', u:prefix+'#filiales'},
+      {t:'Polimed', c:'Filiale', u:prefix+'#filiales'},
+      {t:'FIR', c:'Filiale', u:prefix+'#filiales'},
+      {t:'Oyass Capital', c:'Filiale', u:prefix+'#filiales'},
+      {t:'Aïssatou Ndiaye — Directrice des Investissements', c:'Comité', u:'mission.html#comite'},
+      {t:'Moussa Diallo — Secrétaire Général', c:'Comité', u:'mission.html#comite'},
+      {t:'Fatou Sarr — Directrice Financière', c:'Comité', u:'mission.html#comite'},
+      {t:'Cheikh Fall — Directeur Juridique', c:'Comité', u:'mission.html#comite'},
+      {t:'Babacar Gning — Directeur Général', c:'Gouvernance', u:'mot-du-directeur.html'},
+      {t:'Dakar', c:'Empreinte', u:prefix+'#empreinte'},
+      {t:'Bassin arachidier', c:'Empreinte', u:prefix+'#empreinte'},
+      {t:'Vallée du fleuve Sénégal', c:'Empreinte', u:prefix+'#empreinte'},
+      {t:'Projet Grand Transfert d’Eau (GTE)', c:'Actualité', u:'article.html'},
+      {t:'Gamou Kaolack 2026', c:'Actualité', u:'actualites.html'},
+      {t:'Gamou Tivaouane 2026', c:'Actualité', u:'actualites.html'},
+      {t:'Concours Général 2026', c:'Actualité', u:'actualites.html'},
+      {t:'Rapport annuel', c:'Publication', u:prefix+'#publications'},
+      {t:'Lettre de l’investisseur', c:'Publication', u:prefix+'#publications'},
+      {t:'Politique ESG', c:'Publication', u:prefix+'#publications'},
+      {t:'Appels d’offres', c:'Opportunité', u:prefix+'#collaborer'},
+      {t:'Soumission de projet', c:'Opportunité', u:prefix+'#collaborer'},
+      {t:'Carrières', c:'Opportunité', u:prefix+'#collaborer'}
+    ];
+
+    function renderResults(query){
+      searchResults.innerHTML = '';
+      var q = query.trim().toLowerCase();
+      if(!q){
+        var hint = document.createElement('div');
+        hint.className = 'search-hint';
+        hint.textContent = 'Secteurs, filiales, actualités, comité de direction…';
+        searchResults.appendChild(hint);
+        return;
+      }
+      var matches = INDEX.filter(function(item){ return item.t.toLowerCase().indexOf(q) !== -1; }).slice(0, 7);
+      if(!matches.length){
+        var empty = document.createElement('div');
+        empty.className = 'search-empty';
+        empty.textContent = 'Aucun résultat pour « ' + query.trim() + ' ».';
+        searchResults.appendChild(empty);
+        return;
+      }
+      matches.forEach(function(item, i){
+        var a = document.createElement('a');
+        a.className = 'search-result' + (i===0 ? ' hi' : '');
+        a.href = item.u;
+        a.innerHTML = '<span class="search-result-title"></span><span class="search-result-cat"></span>';
+        a.querySelector('.search-result-title').textContent = item.t;
+        a.querySelector('.search-result-cat').textContent = item.c;
+        searchResults.appendChild(a);
+      });
+    }
+
+    function openSearch(){
+      searchPanel.classList.add('open');
+      searchToggle.classList.add('active');
+      searchToggle.setAttribute('aria-expanded','true');
+      renderResults('');
+      setTimeout(function(){ searchInput.focus(); }, 50);
+    }
+    function closeSearch(){
+      searchPanel.classList.remove('open');
+      searchToggle.classList.remove('active');
+      searchToggle.setAttribute('aria-expanded','false');
+      searchInput.value = '';
+    }
+    searchToggle.addEventListener('click', function(){
+      searchPanel.classList.contains('open') ? closeSearch() : openSearch();
+    });
+    searchInput.addEventListener('input', function(){ renderResults(searchInput.value); });
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        var first = searchResults.querySelector('.search-result');
+        if(first) window.location.href = first.getAttribute('href');
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeSearch();
+      if((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)){
+        e.preventDefault();
+        searchPanel.classList.contains('open') ? closeSearch() : openSearch();
+      }
+    });
+    document.addEventListener('click', function(e){
+      if(!searchPanel.contains(e.target) && e.target !== searchToggle && !searchToggle.contains(e.target)){
+        closeSearch();
+      }
+    });
+  }
+
   // ---- Contact form: front-end only mockup ----
   var form = document.getElementById('contactForm');
   if(form){
