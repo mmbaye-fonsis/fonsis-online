@@ -127,6 +127,7 @@
     overflow:hidden;
   }
   .hero-inner{
+    max-width:clamp(1240px, 82vw, 1600px); margin:0 auto;
     display:grid; grid-template-columns:1.15fr 0.95fr; gap:44px; align-items:center;
     padding:72px clamp(20px,4vw,56px) 56px;
     position:relative; z-index:2;
