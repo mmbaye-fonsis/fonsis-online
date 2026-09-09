@@ -268,4 +268,53 @@
       if(note) note.textContent = 'Maquette — aucun message n’est réellement envoyé pour le moment.';
     });
   }
+
+  // ---- Mobile nav (hamburger panel + tap-to-expand dropdowns) ----
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  var navOverlay = document.getElementById('navOverlay');
+  if(navToggle && navLinks && navOverlay){
+    function openNav(){
+      navLinks.classList.add('open');
+      navOverlay.classList.add('open');
+      navToggle.setAttribute('aria-expanded','true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav(){
+      navLinks.classList.remove('open');
+      navOverlay.classList.remove('open');
+      navToggle.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+      navLinks.querySelectorAll('.nav-item.mobile-open').forEach(function(item){
+        item.classList.remove('mobile-open');
+      });
+    }
+    navToggle.addEventListener('click', function(){
+      navLinks.classList.contains('open') ? closeNav() : openNav();
+    });
+    navOverlay.addEventListener('click', closeNav);
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && navLinks.classList.contains('open')) closeNav();
+    });
+    window.addEventListener('resize', function(){
+      if(window.innerWidth > 860 && navLinks.classList.contains('open')) closeNav();
+    });
+
+    // On mobile, tapping a category with a submenu expands it in place
+    // instead of navigating (hover isn't available on touch).
+    navLinks.querySelectorAll('.nav-item').forEach(function(item){
+      var link = item.querySelector('> a');
+      var drop = item.querySelector('.nav-drop');
+      if(!link || !drop) return;
+      link.addEventListener('click', function(e){
+        if(window.innerWidth > 860) return;
+        e.preventDefault();
+        var isOpen = item.classList.contains('mobile-open');
+        navLinks.querySelectorAll('.nav-item.mobile-open').forEach(function(other){
+          if(other !== item) other.classList.remove('mobile-open');
+        });
+        item.classList.toggle('mobile-open', !isOpen);
+      });
+    });
+  }
 })();

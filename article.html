@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="assets/img/favicon.jpg">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body data-page="actualites" data-nav-i18n-only>
@@ -20,7 +21,7 @@
       </svg>
       <span>FONSIS</span>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <div class="nav-item">
         <a href="mission.html" data-page="mission">
           <span data-i18n="nav_qui">Qui sommes-nous</span>
@@ -85,7 +86,7 @@
       </div>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
-      <div class="nav-item"><a href="contact.html" data-i18n="nav_contact">Contact</a></div>
+      <div class="nav-item nav-contact-link"><a href="contact.html" data-i18n="nav_contact">Contact</a></div>
       <div class="lang-toggle" role="group" aria-label="Langue / Language">
         <button type="button" data-lang="fr" class="active">FR</button>
         <button type="button" data-lang="en">EN</button>
@@ -102,9 +103,13 @@
           <div class="search-results" id="searchResults"></div>
         </div>
       </div>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
     </div>
   </div>
 </nav>
+<div class="nav-overlay" id="navOverlay"></div>
 <main>
 
 <section class="page-header has-cover" style="background-image:url('assets/img/water-hands.jpg');">
