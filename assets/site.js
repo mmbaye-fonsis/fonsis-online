@@ -303,7 +303,7 @@
     // On mobile, tapping a category with a submenu expands it in place
     // instead of navigating (hover isn't available on touch).
     navLinks.querySelectorAll('.nav-item').forEach(function(item){
-      var link = item.querySelector('> a');
+      var link = item.querySelector(':scope > a');
       var drop = item.querySelector('.nav-drop');
       if(!link || !drop) return;
       link.addEventListener('click', function(e){
