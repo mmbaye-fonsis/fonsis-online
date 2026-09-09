@@ -2,18 +2,34 @@
   // ---- Nav-only FR/EN toggle (shared across all pages) ----
   var NAV_I18N = {
     fr: {
-      nav_qui:"À propos", nav_invest:"Investissements", nav_gouv:"Gouvernance", nav_actu:"Actualités",
-      nav_carrieres:"Carrières", nav_contact:"Contact", nav_cta:"Soumettre un projet",
-      drop_presentation:"Présentation", drop_dg:"Mot du DG", drop_comite:"Comité de direction",
+      nav_qui:"Qui sommes-nous", nav_engagements:"Nos engagements", nav_invest:"Nos investissements",
+      nav_opportunites:"Opportunités", nav_media:"Média",
+      nav_gouv:"Gouvernance", nav_actu:"Actualités", nav_carrieres:"Carrières", nav_contact:"Contact",
+      nav_cta:"Soumettre un projet",
+      drop_presentation:"Présentation", drop_dg:"Mot du DG", drop_comite:"Notre équipe",
+      drop_histoire:"Notre histoire", drop_politiques:"Politiques et chartes",
+      drop_strategie:"Stratégie et Impact", drop_rapports:"Rapports Annuels",
       drop_secteurs:"Secteurs stratégiques", filiales_eyebrow:"Filiales & véhicules",
-      footprint_eyebrow:"Présence sur le territoire", hero_cta2:"Soumission de projet", pub_eyebrow:"Publications"
+      drop_portefeuille:"Portefeuille", drop_esg:"Politique ESG", drop_impacts:"Impacts",
+      hero_cta2:"Soumission de projet",
+      drop_appelsoffres:"Appels d'offres", drop_appelsprojet:"Appels à projet",
+      drop_appelspartenariat:"Appels à partenariat",
+      drop_lettre:"La lettre de l'Investisseur", drop_documentations:"Documentations", drop_faq:"FAQ"
     },
     en: {
-      nav_qui:"About", nav_invest:"Investments", nav_gouv:"Governance", nav_actu:"News",
-      nav_carrieres:"Careers", nav_contact:"Contact", nav_cta:"Submit a project",
-      drop_presentation:"Overview", drop_dg:"CEO's message", drop_comite:"Executive committee",
+      nav_qui:"About us", nav_engagements:"Our commitments", nav_invest:"Our investments",
+      nav_opportunites:"Opportunities", nav_media:"Media",
+      nav_gouv:"Governance", nav_actu:"News", nav_carrieres:"Careers", nav_contact:"Contact",
+      nav_cta:"Submit a project",
+      drop_presentation:"Overview", drop_dg:"CEO's message", drop_comite:"Our team",
+      drop_histoire:"Our history", drop_politiques:"Policies and charters",
+      drop_strategie:"Strategy and Impact", drop_rapports:"Annual Reports",
       drop_secteurs:"Strategic sectors", filiales_eyebrow:"Subsidiaries & vehicles",
-      footprint_eyebrow:"National footprint", hero_cta2:"Submit a project", pub_eyebrow:"Publications"
+      drop_portefeuille:"Portfolio", drop_esg:"ESG Policy", drop_impacts:"Impacts",
+      hero_cta2:"Submit a project",
+      drop_appelsoffres:"Tenders", drop_appelsprojet:"Calls for projects",
+      drop_appelspartenariat:"Partnership calls",
+      drop_lettre:"Investor Letter", drop_documentations:"Documentation", drop_faq:"FAQ"
     }
   };
   function setNavLang(lang){

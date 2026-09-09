@@ -23,42 +23,69 @@
     <div class="nav-links">
       <div class="nav-item">
         <a href="mission.html" data-section="mandat">
-          <span data-i18n="nav_qui">À propos</span>
+          <span data-i18n="nav_qui">Qui sommes-nous</span>
           <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4"/></svg>
         </a>
         <div class="nav-drop">
-          <a href="mission.html" data-i18n="drop_presentation">Présentation</a>
           <a href="mot-du-directeur.html" data-i18n="drop_dg">Mot du DG</a>
-          <a href="mission.html#comite" data-i18n="drop_comite">Comité de direction</a>
-          <a href="mission.html#gouvernance" data-i18n="nav_gouv">Gouvernance</a>
+          <a href="mission.html" data-i18n="drop_presentation">Présentation</a>
+          <a href="mission.html#comite" data-i18n="drop_comite">Notre équipe</a>
+          <a href="a-venir.html" data-i18n="drop_histoire">Notre histoire</a>
         </div>
       </div>
       <div class="nav-item">
-        <a href="#secteurs">
-          <span data-i18n="nav_invest">Investissements</span>
+        <a href="#gouvernance" data-section="gouvernance">
+          <span data-i18n="nav_engagements">Nos engagements</span>
+          <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4"/></svg>
+        </a>
+        <div class="nav-drop">
+          <a href="mission.html#gouvernance" data-i18n="nav_gouv">Gouvernance</a>
+          <a href="a-venir.html" data-i18n="drop_politiques">Politiques et chartes</a>
+          <a href="a-venir.html" data-i18n="drop_strategie">Stratégie et Impact</a>
+          <a href="#publications" data-i18n="drop_rapports">Rapports Annuels</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#secteurs" data-section="secteurs">
+          <span data-i18n="nav_invest">Nos investissements</span>
           <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4"/></svg>
         </a>
         <div class="nav-drop">
           <a href="#secteurs" data-i18n="drop_secteurs">Secteurs stratégiques</a>
           <a href="#filiales" data-i18n="filiales_eyebrow">Filiales &amp; véhicules</a>
-          <a href="#empreinte" data-i18n="footprint_eyebrow">Présence sur le territoire</a>
-          <a href="#collaborer" data-i18n="hero_cta2">Soumission de projet</a>
+          <a href="a-venir.html" data-i18n="drop_portefeuille">Portefeuille</a>
+          <a href="a-venir.html" data-i18n="drop_esg">Politique ESG</a>
+          <a href="#impacts" data-i18n="drop_impacts">Impacts</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#collaborer" data-section="collaborer">
+          <span data-i18n="nav_opportunites">Opportunités</span>
+          <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4"/></svg>
+        </a>
+        <div class="nav-drop">
+          <a href="contact.html" data-i18n="hero_cta2">Soumission de projet</a>
+          <a href="a-venir.html" data-i18n="nav_carrieres">Carrières</a>
+          <a href="#appels-offres" data-i18n="drop_appelsoffres">Appels d'offres</a>
+          <a href="#appels-projet" data-i18n="drop_appelsprojet">Appels à projet</a>
+          <a href="#appels-partenariat" data-i18n="drop_appelspartenariat">Appels à partenariat</a>
         </div>
       </div>
       <div class="nav-item">
         <a href="actualites.html" data-section="actualites">
-          <span data-i18n="nav_actu">Actualités</span>
+          <span data-i18n="nav_media">Média</span>
           <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4"/></svg>
         </a>
         <div class="nav-drop">
           <a href="actualites.html" data-i18n="nav_actu">Actualités</a>
-          <a href="#publications" data-i18n="pub_eyebrow">Publications</a>
+          <a href="a-venir.html" data-i18n="drop_lettre">La lettre de l'Investisseur</a>
+          <a href="#publications" data-i18n="drop_documentations">Documentations</a>
+          <a href="a-venir.html" data-i18n="drop_faq">FAQ</a>
         </div>
       </div>
-      <div class="nav-item"><a href="#collaborer" data-i18n="nav_carrieres">Carrières</a></div>
-      <div class="nav-item"><a href="contact.html" data-i18n="nav_contact">Contact</a></div>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
+      <div class="nav-item"><a href="contact.html" data-i18n="nav_contact">Contact</a></div>
       <div class="lang-toggle" role="group" aria-label="Langue / Language">
         <button type="button" data-lang="fr" class="active">FR</button>
         <button type="button" data-lang="en">EN</button>
@@ -131,7 +158,7 @@
   </section>
 
   <!-- CHIFFRES -->
-  <section class="facts" aria-label="Repères institutionnels">
+  <section class="facts" id="impacts" aria-label="Repères institutionnels">
     <div class="wrap">
       <div class="fact"><span class="num">2012</span><div class="lbl" data-i18n="fact1_lbl">Année de création — loi n° 2012‑34</div></div>
       <div class="fact"><span class="num">04</span><div class="lbl" data-i18n="fact2_lbl">Secteurs stratégiques prioritaires</div></div>
@@ -437,20 +464,20 @@
         </div>
       </div>
       <div class="collab-grid">
-        <div class="collab-card">
+        <div class="collab-card" id="appels-offres">
           <h4 data-i18n="collab1_h4">Appels d'offres</h4>
           <p data-i18n="collab1_p">Procédures de passation en cours.</p>
-          <a class="link" href="#" data-i18n="collab1_link">En savoir plus →</a>
+          <a class="link" href="a-venir.html" data-i18n="collab1_link">En savoir plus →</a>
         </div>
-        <div class="collab-card">
+        <div class="collab-card" id="appels-projet">
           <h4 data-i18n="collab2_h4">Appels à projet</h4>
           <p data-i18n="collab2_p">Soumettez votre projet pour évaluation.</p>
-          <a class="link" href="#" data-i18n="collab2_link">Remplir le formulaire →</a>
+          <a class="link" href="a-venir.html" data-i18n="collab2_link">Remplir le formulaire →</a>
         </div>
-        <div class="collab-card">
+        <div class="collab-card" id="appels-partenariat">
           <h4 data-i18n="collab3_h4">Appels à partenariat</h4>
           <p data-i18n="collab3_p">Construisons ensemble les projets de demain.</p>
-          <a class="link" href="#" data-i18n="collab3_link">Nous contacter →</a>
+          <a class="link" href="a-venir.html" data-i18n="collab3_link">Nous contacter →</a>
         </div>
       </div>
       <div class="cta-row">
@@ -488,27 +515,27 @@
           <h5 data-i18n="foot_col2_h5">Investissements</h5>
           <ul>
             <li><a href="#secteurs" data-i18n="foot_col2_li1">Portefeuille</a></li>
-            <li><a href="#collaborer" data-i18n="foot_col2_li2">Soumission de projet</a></li>
-            <li><a href="#" data-i18n="foot_col2_li3">Politique ESG</a></li>
-            <li><a href="#" data-i18n="foot_col2_li4">Finance verte</a></li>
+            <li><a href="contact.html" data-i18n="foot_col2_li2">Soumission de projet</a></li>
+            <li><a href="a-venir.html" data-i18n="foot_col2_li3">Politique ESG</a></li>
+            <li><a href="a-venir.html" data-i18n="foot_col2_li4">Finance verte</a></li>
           </ul>
         </div>
         <div class="foot-col">
           <h5 data-i18n="foot_col3_h5">Opportunités</h5>
           <ul>
-            <li><a href="#collaborer" data-i18n="foot_col3_li1">Appels d'offres</a></li>
-            <li><a href="#collaborer" data-i18n="foot_col3_li2">Appels à projet</a></li>
-            <li><a href="#collaborer" data-i18n="foot_col3_li3">Appels à partenariat</a></li>
-            <li><a href="#" data-i18n="foot_col3_li4">Carrières</a></li>
+            <li><a href="#appels-offres" data-i18n="foot_col3_li1">Appels d'offres</a></li>
+            <li><a href="#appels-projet" data-i18n="foot_col3_li2">Appels à projet</a></li>
+            <li><a href="#appels-partenariat" data-i18n="foot_col3_li3">Appels à partenariat</a></li>
+            <li><a href="a-venir.html" data-i18n="foot_col3_li4">Carrières</a></li>
           </ul>
         </div>
         <div class="foot-col">
           <h5 data-i18n="foot_col4_h5">Médiathèque</h5>
           <ul>
             <li><a href="actualites.html" data-i18n="foot_col4_li1">Actualités</a></li>
-            <li><a href="#" data-i18n="foot_col4_li2">Lettre de l'investisseur</a></li>
+            <li><a href="a-venir.html" data-i18n="foot_col4_li2">Lettre de l'investisseur</a></li>
             <li><a href="#publications" data-i18n="foot_col4_li3">Rapports annuels</a></li>
-            <li><a href="#" data-i18n="foot_col4_li4">FAQ</a></li>
+            <li><a href="a-venir.html" data-i18n="foot_col4_li4">FAQ</a></li>
           </ul>
         </div>
       </div>
@@ -545,8 +572,13 @@
 <script>
 (function(){
   var FR = {
-    nav_qui:"À propos", nav_invest:"Investissements", nav_gouv:"Gouvernance", nav_actu:"Actualités", nav_carrieres:"Carrières", nav_cta:"Soumettre un projet",
-    drop_presentation:"Présentation", drop_dg:"Mot du DG", drop_comite:"Comité de direction", drop_secteurs:"Secteurs stratégiques",
+    nav_qui:"Qui sommes-nous", nav_engagements:"Nos engagements", nav_invest:"Nos investissements", nav_opportunites:"Opportunités", nav_media:"Média",
+    nav_gouv:"Gouvernance", nav_actu:"Actualités", nav_carrieres:"Carrières", nav_cta:"Soumettre un projet",
+    drop_presentation:"Présentation", drop_dg:"Mot du DG", drop_comite:"Notre équipe", drop_secteurs:"Secteurs stratégiques",
+    drop_histoire:"Notre histoire", drop_politiques:"Politiques et chartes", drop_strategie:"Stratégie et Impact", drop_rapports:"Rapports Annuels",
+    drop_portefeuille:"Portefeuille", drop_esg:"Politique ESG", drop_impacts:"Impacts",
+    drop_appelsoffres:"Appels d'offres", drop_appelsprojet:"Appels à projet", drop_appelspartenariat:"Appels à partenariat",
+    drop_lettre:"La lettre de l'Investisseur", drop_documentations:"Documentations", drop_faq:"FAQ",
     hero_eyebrow:"RÉPUBLIQUE DU SÉNÉGAL",
     hero_h1:"Fonds Souverain d'Investissements Stratégiques du Sénégal",
     hero_lede:"Depuis 2012, le bras financier de l'État pour les investissements stratégiques, en partenariat avec le secteur privé.",
@@ -608,8 +640,13 @@
     foot_copy:"FONSIS © 2026 — Tous droits réservés"
   };
   var EN = {
-    nav_qui:"About", nav_invest:"Investments", nav_gouv:"Governance", nav_actu:"News", nav_carrieres:"Careers", nav_cta:"Submit a project",
-    drop_presentation:"Overview", drop_dg:"CEO's message", drop_comite:"Executive committee", drop_secteurs:"Strategic sectors",
+    nav_qui:"About us", nav_engagements:"Our commitments", nav_invest:"Our investments", nav_opportunites:"Opportunities", nav_media:"Media",
+    nav_gouv:"Governance", nav_actu:"News", nav_carrieres:"Careers", nav_cta:"Submit a project",
+    drop_presentation:"Overview", drop_dg:"CEO's message", drop_comite:"Our team", drop_secteurs:"Strategic sectors",
+    drop_histoire:"Our history", drop_politiques:"Policies and charters", drop_strategie:"Strategy and Impact", drop_rapports:"Annual Reports",
+    drop_portefeuille:"Portfolio", drop_esg:"ESG Policy", drop_impacts:"Impacts",
+    drop_appelsoffres:"Tenders", drop_appelsprojet:"Calls for projects", drop_appelspartenariat:"Partnership calls",
+    drop_lettre:"Investor Letter", drop_documentations:"Documentation", drop_faq:"FAQ",
     hero_eyebrow:"REPUBLIC OF SENEGAL",
     hero_h1:"Senegal's Strategic Investment Sovereign Fund",
     hero_lede:"Since 2012, the State's financial arm for strategic investment, in partnership with the private sector.",
