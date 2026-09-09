@@ -237,6 +237,17 @@
   .pillar-row p{margin-top:8px; color:var(--navy-mist); font-size:14.5px; line-height:1.6; max-width:56ch;}
   @media (max-width:560px){.pillar-row{grid-template-columns:40px 1fr;} .pillar-row .n{font-size:22px;}}
 
+  /* Horizontal variant (teaser sections only) — same divided-column idea
+     already used by .facts/.hero-strip/.team-list, not a new pattern. */
+  @media (min-width:821px){
+    .pillar-list.is-row{display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--line);}
+    .pillar-list.is-row .pillar-row{display:block; padding:34px 28px 30px; border-bottom:none; border-right:1px solid var(--line);}
+    .pillar-list.is-row .pillar-row:last-child{border-right:none;}
+    .pillar-list.is-row .pillar-row .n{display:block; font-size:32px; margin-bottom:16px;}
+    .pillar-list.is-row .pillar-row h3{font-size:18px;}
+    .pillar-list.is-row .pillar-row p{max-width:none; margin-top:8px; font-size:14.5px;}
+  }
+
   /* ---------- secteurs (photo cards) ---------- */
   .sector-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
   .sector-card{
@@ -335,6 +346,17 @@
   .pub-row .title{font-size:14.5px; font-weight:700; color:var(--navy-deep);}
   .pub-row .sub{margin-top:3px; font-size:12px; color:var(--navy-mist);}
   .pub-row .go{margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--gold-deep); font-weight:600; white-space:nowrap;}
+
+  @media (min-width:821px){
+    .pub-list.is-row{display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--line);}
+    .pub-list.is-row .pub-row{display:block; padding:34px 28px 30px; border-bottom:none; border-right:1px solid var(--line);}
+    .pub-list.is-row .pub-row:last-child{border-right:none;}
+    .pub-list.is-row .pub-row .doc-ic{width:40px; height:40px; border-radius:8px; margin-bottom:16px;}
+    .pub-list.is-row .pub-row .doc-ic svg{width:18px; height:18px;}
+    .pub-list.is-row .pub-row .title{font-size:15.5px;}
+    .pub-list.is-row .pub-row .sub{margin-top:4px; font-size:12.5px;}
+    .pub-list.is-row .pub-row .go{margin-left:0; margin-top:14px; display:inline-block;}
+  }
 
   /* ---------- collaborer (CTA tiles - the one card family that lifts) ---------- */
   .collab-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:44px;}
