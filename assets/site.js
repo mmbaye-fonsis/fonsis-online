@@ -8,9 +8,9 @@
       nav_cta:"Soumettre un projet",
       drop_presentation:"Présentation", drop_dg:"Mot du DG", drop_comite:"Notre équipe",
       drop_histoire:"Notre histoire", drop_politiques:"Politiques et chartes",
-      drop_strategie:"Stratégie et Impact", drop_rapports:"Rapports Annuels",
+      drop_rapports:"Rapports Annuels",
       drop_secteurs:"Secteurs stratégiques", filiales_eyebrow:"Filiales & véhicules",
-      drop_portefeuille:"Portefeuille", drop_esg:"Politique ESG", drop_impacts:"Impacts",
+      drop_portefeuille:"Portefeuille", drop_esg:"Politique ESG",
       hero_cta2:"Soumission de projet",
       drop_appelsoffres:"Appels d'offres", drop_appelsprojet:"Appels à projet",
       drop_appelspartenariat:"Appels à partenariat",
@@ -23,9 +23,9 @@
       nav_cta:"Submit a project",
       drop_presentation:"Overview", drop_dg:"CEO's message", drop_comite:"Our team",
       drop_histoire:"Our history", drop_politiques:"Policies and charters",
-      drop_strategie:"Strategy and Impact", drop_rapports:"Annual Reports",
+      drop_rapports:"Annual Reports",
       drop_secteurs:"Strategic sectors", filiales_eyebrow:"Subsidiaries & vehicles",
-      drop_portefeuille:"Portfolio", drop_esg:"ESG Policy", drop_impacts:"Impacts",
+      drop_portefeuille:"Portfolio", drop_esg:"ESG Policy",
       hero_cta2:"Submit a project",
       drop_appelsoffres:"Tenders", drop_appelsprojet:"Calls for projects",
       drop_appelspartenariat:"Partnership calls",
@@ -178,16 +178,17 @@
       {t:'Fatou Sarr — Directrice Financière', c:'Comité', u:'mission.html#comite'},
       {t:'Cheikh Fall — Directeur Juridique', c:'Comité', u:'mission.html#comite'},
       {t:'Babacar Gning — Directeur Général', c:'Gouvernance', u:'mot-du-directeur.html'},
-      {t:'Dakar', c:'Empreinte', u:prefix+'#empreinte'},
-      {t:'Bassin arachidier', c:'Empreinte', u:prefix+'#empreinte'},
-      {t:'Vallée du fleuve Sénégal', c:'Empreinte', u:prefix+'#empreinte'},
+      {t:'Siège du FONSIS — Dakar', c:'Empreinte', u:prefix+'#empreinte'},
+      {t:'Centre d’imagerie médicale Polimed — Thiès', c:'Empreinte', u:prefix+'#empreinte'},
+      {t:'Centrale solaire de Kaël — Diourbel', c:'Empreinte', u:prefix+'#empreinte'},
+      {t:'Ferme SOPEL — Louga', c:'Empreinte', u:prefix+'#empreinte'},
+      {t:'Centrale solaire de Kahone — Kaolack', c:'Empreinte', u:prefix+'#empreinte'},
+      {t:'DB Foods — Saint-Louis', c:'Empreinte', u:prefix+'#empreinte'},
+      {t:'AGRIBETA — Ziguinchor, Kolda, Sédhiou, Kédougou, Tambacounda', c:'Empreinte', u:prefix+'#empreinte'},
       {t:'Projet Grand Transfert d’Eau (GTE)', c:'Actualité', u:'article.html'},
       {t:'Gamou Kaolack 2026', c:'Actualité', u:'actualites.html'},
       {t:'Gamou Tivaouane 2026', c:'Actualité', u:'actualites.html'},
       {t:'Concours Général 2026', c:'Actualité', u:'actualites.html'},
-      {t:'Rapport annuel', c:'Publication', u:prefix+'#publications'},
-      {t:'Lettre de l’investisseur', c:'Publication', u:prefix+'#publications'},
-      {t:'Politique ESG', c:'Publication', u:prefix+'#publications'},
       {t:'Appels d’offres', c:'Opportunité', u:prefix+'#collaborer'},
       {t:'Soumission de projet', c:'Opportunité', u:prefix+'#collaborer'},
       {t:'Carrières', c:'Opportunité', u:prefix+'#collaborer'}
@@ -316,5 +317,183 @@
         item.classList.toggle('mobile-open', !isOpen);
       });
     });
+  }
+
+  // ---- Mandate flow: staggered scroll-reveal (icons + connecting line) ----
+  var mandateFlow = document.querySelector('.mandate-flow');
+  if(mandateFlow){
+    var mandateNodes = mandateFlow.querySelectorAll('.mandate-node');
+    mandateNodes.forEach(function(node, i){ node.style.setProperty('--i', i); });
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduceMotion || !('IntersectionObserver' in window)){
+      mandateFlow.classList.add('in-view');
+    } else {
+      var mfio = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ mandateFlow.classList.add('in-view'); mfio.disconnect(); }
+        });
+      }, {threshold:.25});
+      mfio.observe(mandateFlow);
+    }
+  }
+
+  // ---- Filiale grid: staggered fade/rise-in on scroll ----
+  var filialeGrid = document.querySelector('.filiale-grid');
+  if(filialeGrid){
+    var filialeTiles = filialeGrid.querySelectorAll('.filiale-tile');
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)){
+      filialeTiles.forEach(function(t){ t.classList.add('in-view'); });
+    } else {
+      var fgio = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('in-view'); fgio.unobserve(e.target); }
+        });
+      }, {threshold:.2});
+      filialeTiles.forEach(function(t, i){ t.style.transitionDelay = (i*70)+'ms'; fgio.observe(t); });
+    }
+  }
+
+  // ---- Timeline: horizontal scroll rail with arrows + autoplay ----
+  var timelineRail = document.getElementById('timelineRail');
+  if(timelineRail){
+    var timelinePrev = document.getElementById('timelinePrev');
+    var timelineNext = document.getElementById('timelineNext');
+    var tlFadeLeft = document.querySelector('.timeline-fade.left');
+    var tlFadeRight = document.querySelector('.timeline-fade.right');
+
+    function tlUpdateEdges(){
+      var atStart = timelineRail.scrollLeft <= 4;
+      var atEnd = timelineRail.scrollLeft >= timelineRail.scrollWidth - timelineRail.clientWidth - 4;
+      if(timelinePrev) timelinePrev.disabled = atStart;
+      if(timelineNext) timelineNext.disabled = atEnd;
+      if(tlFadeLeft) tlFadeLeft.classList.toggle('hidden', atStart);
+      if(tlFadeRight) tlFadeRight.classList.toggle('hidden', atEnd);
+      return {atStart:atStart, atEnd:atEnd};
+    }
+    function tlStepWidth(){
+      var card = timelineRail.querySelector('.timeline-event');
+      return card ? card.getBoundingClientRect().width + 1 : timelineRail.clientWidth*.8;
+    }
+    function tlScrollBy(dir){ timelineRail.scrollBy({left: dir*tlStepWidth(), behavior:'smooth'}); }
+
+    timelineRail.addEventListener('scroll', tlUpdateEdges, {passive:true});
+    window.addEventListener('resize', tlUpdateEdges);
+    tlUpdateEdges();
+
+    var tlPauseUntil = 0;
+    function tlPauseAutoplay(){ tlPauseUntil = Date.now() + 5000; }
+    if(timelinePrev) timelinePrev.addEventListener('click', function(){ tlPauseAutoplay(); tlScrollBy(-1); });
+    if(timelineNext) timelineNext.addEventListener('click', function(){ tlPauseAutoplay(); tlScrollBy(1); });
+    timelineRail.addEventListener('pointerdown', tlPauseAutoplay);
+    timelineRail.addEventListener('touchstart', tlPauseAutoplay, {passive:true});
+
+    var tlHovering = false;
+    timelineRail.addEventListener('mouseenter', function(){ tlHovering = true; });
+    timelineRail.addEventListener('mouseleave', function(){ tlHovering = false; });
+
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      setInterval(function(){
+        if(tlHovering || Date.now() < tlPauseUntil) return;
+        var edges = tlUpdateEdges();
+        if(edges.atEnd) timelineRail.scrollTo({left:0, behavior:'smooth'});
+        else tlScrollBy(1);
+      }, 4200);
+    }
+  }
+
+  // ---- Regional footprint map (Leaflet) — real FONSIS investments, homepage only ----
+  var rfmMapEl = document.getElementById('rfmMap');
+  if(rfmMapEl && window.L && window.FONSIS_REGIONAL_PROJECTS){
+    var rfmProjects = window.FONSIS_REGIONAL_PROJECTS;
+    var RFM_STATUS_LABEL = {operationnel:'Opérationnel', en_cours:'En cours', etude:"À l'étude"};
+    var RFM_FIT_BOUNDS = [[12.1,-17.6],[16.75,-11.35]];
+    var RFM_MAX_BOUNDS = [[10.8,-18.6],[17.6,-10.4]];
+
+    var rfmMap = L.map(rfmMapEl, {
+      maxBounds: RFM_MAX_BOUNDS, maxBoundsViscosity: .7,
+      minZoom: 6.3, maxZoom: 13, scrollWheelZoom: false
+    });
+    rfmMap.fitBounds(RFM_FIT_BOUNDS, {padding:[12,12]});
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(rfmMap);
+
+    function rfmMarkerIcon(active, isHq){
+      var size = isHq ? 22 : (active ? 20 : 15);
+      var cls = 'rfm-pin' + (isHq ? ' rfm-pin-hq' : '') + (active ? ' rfm-pin-active' : '');
+      return L.divIcon({
+        className: 'rfm-pin-wrap',
+        html: '<span class="'+cls+'" style="width:'+size+'px;height:'+size+'px"></span>',
+        iconSize: [size, size], iconAnchor: [size/2, size/2]
+      });
+    }
+
+    var rfmMarkers = {};
+    var rfmDetail = document.getElementById('rfmDetail');
+    var rfmList = document.getElementById('rfmList');
+
+    function rfmProjectById(id){
+      var found = null;
+      rfmProjects.forEach(function(p){ if(p.id===id) found = p; });
+      return found;
+    }
+
+    function rfmRenderDetail(p){
+      var statusLabel = RFM_STATUS_LABEL[p.status] || RFM_STATUS_LABEL.etude;
+      var titleText = p.isHq ? 'Siège du FONSIS' : p.title;
+      var photoHtml = p.photo ? '<img class="rfm-detail-photo" src="'+p.photo+'" alt="'+titleText+'">' : '';
+      rfmDetail.innerHTML =
+        photoHtml +
+        '<div class="rfm-detail-body">' +
+          '<div class="rfm-detail-region mono">'+p.region+'</div>' +
+          '<h3>'+titleText+'</h3>' +
+          '<div class="rfm-detail-meta">' +
+            '<span>'+p.location+'</span>' +
+            '<span class="rfm-status rfm-status-'+p.status+'">'+statusLabel+'</span>' +
+          '</div>' +
+          '<p>'+p.description+'</p>' +
+        '</div>';
+    }
+
+    function rfmSelect(id, opts){
+      opts = opts || {};
+      var p = rfmProjectById(id);
+      if(!p) return;
+      rfmRenderDetail(p);
+      Object.keys(rfmMarkers).forEach(function(k){
+        rfmMarkers[k].setIcon(rfmMarkerIcon(k===id, rfmProjectById(k).isHq));
+      });
+      rfmList.querySelectorAll('.rfm-list-row').forEach(function(row){
+        row.classList.toggle('active', row.getAttribute('data-id')===id);
+      });
+      if(opts.fly !== false) rfmMap.flyTo([p.lat, p.lng], 9.5, {duration:.9});
+      if(opts.openPopup) rfmMarkers[id].openPopup();
+    }
+
+    rfmProjects.forEach(function(p){
+      var titleText = p.isHq ? 'Siège du FONSIS' : p.title;
+      var marker = L.marker([p.lat, p.lng], {icon: rfmMarkerIcon(false, p.isHq)}).addTo(rfmMap);
+      marker.bindPopup('<strong>'+titleText+'</strong><br>'+p.location);
+      marker.on('click', function(){ rfmSelect(p.id, {fly:false}); });
+      rfmMarkers[p.id] = marker;
+
+      var row = document.createElement('button');
+      row.type = 'button';
+      row.className = 'rfm-list-row';
+      row.setAttribute('data-id', p.id);
+      row.innerHTML =
+        '<span class="rfm-list-dot'+(p.isHq ? ' hq' : '')+'" aria-hidden="true"></span>' +
+        '<span class="rfm-list-text">' +
+          '<span class="rfm-list-title">'+titleText+'</span>' +
+          '<span class="rfm-list-region mono">'+p.region+'</span>' +
+        '</span>';
+      row.addEventListener('click', function(){ rfmSelect(p.id, {openPopup:true}); });
+      rfmList.appendChild(row);
+    });
+
+    var rfmHq = rfmProjects.filter(function(p){ return p.isHq; })[0];
+    rfmSelect(rfmHq ? rfmHq.id : rfmProjects[0].id, {fly:false});
+    setTimeout(function(){ rfmMap.invalidateSize(); }, 200);
   }
 })();

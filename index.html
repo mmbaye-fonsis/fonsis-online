@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/jpeg" href="assets/img/favicon.jpg">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
 <nav class="nav-bar">
@@ -42,7 +43,6 @@
         <div class="nav-drop">
           <a href="mission.html#gouvernance" data-i18n="nav_gouv">Gouvernance</a>
           <a href="a-venir.html" data-i18n="drop_politiques">Politiques et chartes</a>
-          <a href="a-venir.html" data-i18n="drop_strategie">Stratégie et Impact</a>
           <a href="#publications" data-i18n="drop_rapports">Rapports Annuels</a>
         </div>
       </div>
@@ -56,7 +56,6 @@
           <a href="#filiales" data-i18n="filiales_eyebrow">Filiales &amp; véhicules</a>
           <a href="a-venir.html" data-i18n="drop_portefeuille">Portefeuille</a>
           <a href="a-venir.html" data-i18n="drop_esg">Politique ESG</a>
-          <a href="#impacts" data-i18n="drop_impacts">Impacts</a>
         </div>
       </div>
       <div class="nav-item">
@@ -86,7 +85,6 @@
       </div>
     </div>
     <div style="display:flex; align-items:center; gap:16px;">
-      <div class="nav-item nav-contact-link"><a href="contact.html" data-i18n="nav_contact">Contact</a></div>
       <div class="lang-toggle" role="group" aria-label="Langue / Language">
         <button type="button" data-lang="fr" class="active">FR</button>
         <button type="button" data-lang="en">EN</button>
@@ -162,15 +160,35 @@
     </div>
   </section>
 
-  <!-- CHIFFRES -->
-  <section class="facts" id="impacts" aria-label="Repères institutionnels">
-    <div class="wrap">
-      <div class="fact"><span class="num">2012</span><div class="lbl" data-i18n="fact1_lbl">Année de création — loi n° 2012‑34</div></div>
-      <div class="fact"><span class="num">04</span><div class="lbl" data-i18n="fact2_lbl">Secteurs stratégiques prioritaires</div></div>
-      <div class="fact"><span class="num">05</span><div class="lbl" data-i18n="fact3_lbl">Filiales et véhicules d'investissement</div></div>
-      <div class="fact"><span class="num">01</span><div class="lbl" data-i18n="fact4_lbl">Fonds souverain — Principes de Santiago</div></div>
+  <!-- IMPACTS -->
+  <section class="impacts-section" id="impacts" aria-label="Impacts">
+    <div class="impact-panel">
+      <div class="impact-photo">
+        <img src="assets/img/solar-farm.jpg" alt="" />
+        <div class="impact-photo-caption">
+          <div class="eyebrow" data-i18n="impacts_eyebrow">Impacts</div>
+          <h2 data-i18n="impacts_h2">De la croissance à la réalisation</h2>
+        </div>
+      </div>
+      <div class="impact-stats">
+        <div class="impact-stat">
+          <div class="impact-stat-num">41.6<span class="impact-stat-suffix">Mds</span></div>
+          <div class="impact-stat-label" data-i18n="impact1_lbl">Portefeuille actif global</div>
+        </div>
+        <div class="impact-stat">
+          <div class="impact-stat-num">5&nbsp;863</div>
+          <div class="impact-stat-label" data-i18n="impact2_lbl">Emplois créés ou préservés</div>
+        </div>
+        <div class="impact-stat">
+          <div class="impact-stat-num">28</div>
+          <div class="impact-stat-label" data-i18n="impact3_lbl">Sociétés en portefeuille</div>
+        </div>
+        <div class="impact-stat">
+          <div class="impact-stat-num">55.1<span class="impact-stat-suffix">Mds</span></div>
+          <div class="impact-stat-label" data-i18n="impact4_lbl">Valorisation du portefeuille</div>
+        </div>
+      </div>
     </div>
-    <div class="wrap"><div class="facts-caption" data-i18n="facts_caption">Repères vérifiables — indicateurs de portefeuille à venir.</div></div>
   </section>
 
   <!-- MANDAT -->
@@ -182,29 +200,35 @@
           <h2 style="margin-top:14px;" data-i18n="mandat_h2">Catalyser, structurer, co‑investir</h2>
         </div>
       </div>
-      <p class="lede-block" data-i18n-html="mandat_lede">Le FONSIS agit comme <strong>le bras financier de l'État</strong> pour les investissements stratégiques, en mobilisant des capitaux privés vers les projets à fort impact économique.</p>
-      <div class="pillar-list">
-        <div class="pillar-row">
-          <div class="n">01</div>
-          <div>
-            <h3 data-i18n="pillar1_h3">Financement de projet</h3>
-            <p data-i18n="pillar1_p">Infrastructure &amp; développement</p>
+      <p class="lede-block mandate-lede" data-i18n-html="mandat_lede">Le FONSIS agit comme <strong>le bras financier de l'État</strong> pour les investissements stratégiques, en mobilisant des capitaux privés vers les projets à fort impact économique.</p>
+      <div class="mandate-flow">
+        <div class="mandate-node">
+          <div class="mandate-node-badge">
+            <svg viewBox="0 0 28 28" fill="none"><path d="M3 19l7-7 4 4 9-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 7h7v7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
+          <div class="mandate-node-num mono">01</div>
+          <div class="mandate-node-title" data-i18n="pillar1_h3">Financement de projet</div>
         </div>
-        <div class="pillar-row">
-          <div class="n">02</div>
-          <div>
-            <h3 data-i18n="pillar2_h3">Structuration de développement</h3>
-            <p data-i18n="pillar2_p">Conception → mise en œuvre</p>
+        <div class="mandate-node">
+          <div class="mandate-node-badge">
+            <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="6" r="3" stroke="currentColor" stroke-width="2.2"/><circle cx="6" cy="22" r="3" stroke="currentColor" stroke-width="2.2"/><circle cx="22" cy="22" r="3" stroke="currentColor" stroke-width="2.2"/><path d="M14 9v3M14 12H6v7M14 12h8v7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
+          <div class="mandate-node-num mono">02</div>
+          <div class="mandate-node-title" data-i18n="pillar2_h3">Structuration de développement</div>
         </div>
-        <div class="pillar-row">
-          <div class="n">03</div>
-          <div>
-            <h3 data-i18n="pillar3_h3">Fonds de fonds &amp; politique d'investissement</h3>
-            <p data-i18n="pillar3_p">Véhicules dédiés par secteur</p>
+        <div class="mandate-node">
+          <div class="mandate-node-badge">
+            <svg viewBox="0 0 28 28" fill="none"><path d="M14 3l11 6-11 6-11-6 11-6z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M3 15l11 6 11-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 20l11 6 11-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
+          <div class="mandate-node-num mono">03</div>
+          <div class="mandate-node-title" data-i18n="pillar3_h3">Fonds de fonds &amp; politique d'investissement</div>
         </div>
+        <a class="mandate-node mandate-node-cta" href="mission.html#mandat">
+          <div class="mandate-node-badge">
+            <svg viewBox="0 0 28 28" fill="none"><path d="M8 14h12M15 8l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="mandate-node-title" data-i18n="mandat_cta">Voir le détail</div>
+        </a>
       </div>
     </div>
   </section>
@@ -252,26 +276,6 @@
     </div>
   </section>
 
-  <!-- FILIALES -->
-  <section class="section" id="filiales" style="padding-top:0;">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow" data-i18n="filiales_eyebrow">Filiales &amp; véhicules</div>
-          <h2 style="margin-top:14px;" data-i18n="filiales_h2">Le portefeuille en mouvement</h2>
-        </div>
-        <p class="section-kicker" data-i18n="filiales_kicker">Véhicules et filiales à travers lesquels le FONSIS déploie ses investissements sectoriels.</p>
-      </div>
-      <div class="subsid-row">
-        <div class="subsid"><div class="mark">We Fund</div><div class="cat" data-i18n="sub1_cat">Financement PME</div></div>
-        <div class="subsid"><div class="mark">Kajom Capital</div><div class="cat" data-i18n="sub_generic_cat">Véhicule sectoriel</div></div>
-        <div class="subsid"><div class="mark">Polimed</div><div class="cat" data-i18n="sub3_cat">Santé &amp; Pharma</div></div>
-        <div class="subsid"><div class="mark">FIR</div><div class="cat" data-i18n="sub_generic_cat">Véhicule sectoriel</div></div>
-        <div class="subsid"><div class="mark">Oyass Capital</div><div class="cat" data-i18n="sub_generic_cat">Véhicule sectoriel</div></div>
-      </div>
-    </div>
-  </section>
-
   <!-- EMPREINTE NATIONALE -->
   <section class="section alt" id="empreinte">
     <div class="wrap">
@@ -281,26 +285,13 @@
           <h2 style="margin-top:14px;" data-i18n="footprint_h2">Des investissements ancrés dans les régions</h2>
         </div>
       </div>
-      <div class="footprint-list">
-        <div class="footprint-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-          <div class="region">Dakar</div>
-          <div class="desc" data-i18n="loc1_desc">Siège du FONSIS &amp; Bus Rapid Transit électrique</div>
+      <div class="rfm-layout">
+        <div class="rfm-panel">
+          <div class="rfm-detail" id="rfmDetail"></div>
+          <div class="rfm-list" id="rfmList" role="list"></div>
         </div>
-        <div class="footprint-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-          <div class="region" data-i18n="loc2_region">Bassin arachidier</div>
-          <div class="desc" data-i18n="loc2_desc">Programme des Agropoles — Agrobusiness</div>
-        </div>
-        <div class="footprint-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-          <div class="region" data-i18n="loc3_region">Vallée du fleuve Sénégal</div>
-          <div class="desc" data-i18n="loc3_desc">Grand Transfert d'Eau (GTE)</div>
-        </div>
-        <div class="footprint-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-          <div class="region" data-i18n="loc4_region">Territoire national</div>
-          <div class="desc" data-i18n="loc4_desc">Parcs solaires &amp; énergies renouvelables</div>
+        <div class="rfm-map-wrap">
+          <div class="rfm-map" id="rfmMap"></div>
         </div>
       </div>
     </div>
@@ -381,7 +372,6 @@
           <div class="eyebrow" data-i18n="actu_eyebrow">Actualités</div>
           <h2 style="margin-top:14px;" data-i18n="actu_h2">Ce qui s'est passé récemment</h2>
         </div>
-        <p class="section-kicker" data-i18n="actu_kicker">Toutes les actualités →</p>
       </div>
       <div class="news-grid">
         <div class="news-card">
@@ -417,44 +407,8 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- PUBLICATIONS -->
-  <section class="section" id="publications">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow" data-i18n="pub_eyebrow">Publications</div>
-          <h2 style="margin-top:14px;" data-i18n="pub_h2">Documentation &amp; rapports</h2>
-        </div>
-        <p class="section-kicker" data-i18n="pub_kicker">À connecter à la médiathèque du FONSIS.</p>
-      </div>
-      <div class="pub-list">
-        <div class="pub-row">
-          <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg></div>
-          <div>
-            <div class="title" data-i18n="pub1_title">Rapport annuel</div>
-            <div class="sub" data-i18n="pub1_sub">Dernier exercice — à publier</div>
-          </div>
-          <span class="go">→</span>
-        </div>
-        <div class="pub-row">
-          <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg></div>
-          <div>
-            <div class="title" data-i18n="pub2_title">Lettre de l'investisseur</div>
-            <div class="sub" data-i18n="pub2_sub">Publication périodique</div>
-          </div>
-          <span class="go">→</span>
-        </div>
-        <div class="pub-row">
-          <div class="doc-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg></div>
-          <div>
-            <div class="title" data-i18n="pub3_title">Politique ESG</div>
-            <div class="sub" data-i18n="pub3_sub">Cadre d'investissement responsable</div>
-          </div>
-          <span class="go">→</span>
-        </div>
+      <div class="section-more">
+        <a href="actualites.html" data-i18n="actu_kicker">Toutes les actualités →</a>
       </div>
     </div>
   </section>
@@ -488,6 +442,43 @@
       <div class="cta-row">
         <a class="btn btn-gold" href="#contact" data-i18n="collab_cta1">Carrières au FONSIS</a>
         <a class="btn" style="border:1.5px solid var(--navy); color:var(--navy);" href="#contact" data-i18n="collab_cta2">Soumission de projet</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILIALES — bande logos, en bas de page -->
+  <section class="filiale-strip" id="filiales" aria-label="Filiales">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" data-i18n="filiales_eyebrow">Filiales &amp; véhicules</div>
+          <h2 style="margin-top:14px;" data-i18n="filiales_h2b">Nos filiales &amp; véhicules d'investissement</h2>
+        </div>
+      </div>
+      <div class="filiale-grid">
+        <a class="filiale-tile" href="https://wefund.sn" target="_blank" rel="noopener noreferrer" style="transition-delay:0ms">
+          <div class="filiale-mark has-logo"><img src="assets/img/filiales/we-fund.png" alt="We Fund" /></div>
+          <div class="filiale-cat" data-i18n="sub1_cat">Financement des femmes entrepreneures</div>
+          <span class="filiale-visit" data-i18n="filiale_visit">Visiter le site ↗</span>
+        </a>
+        <div class="filiale-tile" style="transition-delay:70ms">
+          <div class="filiale-mark"><span class="filiale-wordmark">Kajom Capital</span></div>
+          <div class="filiale-cat" data-i18n="sub2_cat">Location-vente immobilière</div>
+        </div>
+        <a class="filiale-tile" href="http://polimed.sn" target="_blank" rel="noopener noreferrer" style="transition-delay:140ms">
+          <div class="filiale-mark"><span class="filiale-wordmark">Polimed</span></div>
+          <div class="filiale-cat" data-i18n="sub3_cat">Infrastructures médicales</div>
+          <span class="filiale-visit" data-i18n="filiale_visit">Visiter le site ↗</span>
+        </a>
+        <a class="filiale-tile" href="http://fir.fonsis.org" target="_blank" rel="noopener noreferrer" style="transition-delay:210ms">
+          <div class="filiale-mark has-logo"><img src="assets/img/filiales/fir.png" alt="FIR" /></div>
+          <div class="filiale-cat" data-i18n="sub4_cat">Financement islamique des PME</div>
+          <span class="filiale-visit" data-i18n="filiale_visit">Visiter le site ↗</span>
+        </a>
+        <div class="filiale-tile" style="transition-delay:280ms">
+          <div class="filiale-mark"><span class="filiale-wordmark">Oyass Capital</span></div>
+          <div class="filiale-cat" data-i18n="sub5_cat">Financement des PME</div>
+        </div>
       </div>
     </div>
   </section>
@@ -580,8 +571,8 @@
     nav_qui:"Qui sommes-nous", nav_engagements:"Nos engagements", nav_invest:"Nos investissements", nav_opportunites:"Opportunités", nav_media:"Média",
     nav_gouv:"Gouvernance", nav_actu:"Actualités", nav_carrieres:"Carrières", nav_cta:"Soumettre un projet",
     drop_presentation:"Présentation", drop_dg:"Mot du DG", drop_comite:"Notre équipe", drop_secteurs:"Secteurs stratégiques",
-    drop_histoire:"Notre histoire", drop_politiques:"Politiques et chartes", drop_strategie:"Stratégie et Impact", drop_rapports:"Rapports Annuels",
-    drop_portefeuille:"Portefeuille", drop_esg:"Politique ESG", drop_impacts:"Impacts",
+    drop_histoire:"Notre histoire", drop_politiques:"Politiques et chartes", drop_rapports:"Rapports Annuels",
+    drop_portefeuille:"Portefeuille", drop_esg:"Politique ESG",
     drop_appelsoffres:"Appels d'offres", drop_appelsprojet:"Appels à projet", drop_appelspartenariat:"Appels à partenariat",
     drop_lettre:"La lettre de l'Investisseur", drop_documentations:"Documentations", drop_faq:"FAQ",
     hero_eyebrow:"RÉPUBLIQUE DU SÉNÉGAL",
@@ -606,13 +597,14 @@
     sector3_h3:"Santé & Pharma", sector3_p:"Accès aux soins, pharma locale",
     sector4_h3:"Infrastructures & Transports", sector4_p:"Infrastructures qui connectent le pays",
     filiales_eyebrow:"Filiales & véhicules", filiales_h2:"Le portefeuille en mouvement",
-    filiales_kicker:"Véhicules et filiales à travers lesquels le FONSIS déploie ses investissements sectoriels.",
-    sub1_cat:"Financement PME", sub_generic_cat:"Véhicule sectoriel", sub3_cat:"Santé & Pharma",
+    filiales_h2b:"Nos filiales & véhicules d'investissement", filiale_visit:"Visiter le site ↗",
+    sub1_cat:"Financement des femmes entrepreneures", sub2_cat:"Location-vente immobilière",
+    sub3_cat:"Infrastructures médicales", sub4_cat:"Financement islamique des PME", sub5_cat:"Financement des PME",
     footprint_eyebrow:"Présence sur le territoire", footprint_h2:"Des investissements ancrés dans les régions",
-    loc1_desc:"Siège du FONSIS & Bus Rapid Transit électrique",
-    loc2_region:"Bassin arachidier", loc2_desc:"Programme des Agropoles — Agrobusiness",
-    loc3_region:"Vallée du fleuve Sénégal", loc3_desc:"Grand Transfert d'Eau (GTE)",
-    loc4_region:"Territoire national", loc4_desc:"Parcs solaires & énergies renouvelables",
+    impacts_eyebrow:"Impacts", impacts_h2:"De la croissance à la réalisation",
+    impact1_lbl:"Portefeuille actif global", impact2_lbl:"Emplois créés ou préservés",
+    impact3_lbl:"Sociétés en portefeuille", impact4_lbl:"Valorisation du portefeuille",
+    mandat_cta:"Voir le détail",
     gouv_eyebrow:"Gouvernance",
     dg_quote:"Diriger le Fonds Souverain d'Investissements Stratégiques, c'est porter une responsabilité constamment présente à l'esprit&nbsp;: celle de faire fructifier ce qui appartient, au fond, à chaque Sénégalaise et à chaque Sénégalais.",
     dg_role:"DIRECTEUR GÉNÉRAL DU FONSIS",
@@ -648,8 +640,8 @@
     nav_qui:"About us", nav_engagements:"Our commitments", nav_invest:"Our investments", nav_opportunites:"Opportunities", nav_media:"Media",
     nav_gouv:"Governance", nav_actu:"News", nav_carrieres:"Careers", nav_cta:"Submit a project",
     drop_presentation:"Overview", drop_dg:"CEO's message", drop_comite:"Our team", drop_secteurs:"Strategic sectors",
-    drop_histoire:"Our history", drop_politiques:"Policies and charters", drop_strategie:"Strategy and Impact", drop_rapports:"Annual Reports",
-    drop_portefeuille:"Portfolio", drop_esg:"ESG Policy", drop_impacts:"Impacts",
+    drop_histoire:"Our history", drop_politiques:"Policies and charters", drop_rapports:"Annual Reports",
+    drop_portefeuille:"Portfolio", drop_esg:"ESG Policy",
     drop_appelsoffres:"Tenders", drop_appelsprojet:"Calls for projects", drop_appelspartenariat:"Partnership calls",
     drop_lettre:"Investor Letter", drop_documentations:"Documentation", drop_faq:"FAQ",
     hero_eyebrow:"REPUBLIC OF SENEGAL",
@@ -674,13 +666,14 @@
     sector3_h3:"Health & Pharma", sector3_p:"Healthcare access, local pharma",
     sector4_h3:"Infrastructure & Transport", sector4_p:"Infrastructure connecting the country",
     filiales_eyebrow:"Subsidiaries & vehicles", filiales_h2:"The portfolio in motion",
-    filiales_kicker:"The vehicles and subsidiaries through which FONSIS deploys its sector investments.",
-    sub1_cat:"SME financing", sub_generic_cat:"Sector vehicle", sub3_cat:"Health & Pharma",
+    filiales_h2b:"Our subsidiaries & investment vehicles", filiale_visit:"Visit site ↗",
+    sub1_cat:"Women entrepreneurs financing", sub2_cat:"Rent-to-own housing",
+    sub3_cat:"Medical infrastructure", sub4_cat:"Islamic SME financing", sub5_cat:"SME financing",
     footprint_eyebrow:"National footprint", footprint_h2:"Investments rooted across the regions",
-    loc1_desc:"FONSIS headquarters & electric Bus Rapid Transit",
-    loc2_region:"Groundnut Basin", loc2_desc:"Agropoles programme — Agribusiness",
-    loc3_region:"Senegal River Valley", loc3_desc:"Grand Water Transfer Programme (GTE)",
-    loc4_region:"Nationwide", loc4_desc:"Solar parks & renewable energy",
+    impacts_eyebrow:"Impacts", impacts_h2:"From growth to results",
+    impact1_lbl:"Global active portfolio", impact2_lbl:"Jobs created or preserved",
+    impact3_lbl:"Portfolio companies", impact4_lbl:"Portfolio valuation",
+    mandat_cta:"See full detail",
     gouv_eyebrow:"Governance",
     dg_quote:"Leading the Strategic Investment Sovereign Fund means carrying a responsibility that never leaves your mind&nbsp;: making what ultimately belongs to every Senegalese woman and man bear fruit.",
     dg_role:"CHIEF EXECUTIVE OFFICER OF FONSIS",
@@ -734,6 +727,8 @@
   setLang('fr');
 })();
 </script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="assets/regional-map-data.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>
