@@ -149,12 +149,14 @@
     });
   }
 
-  // ---- Site search (replaces the nav CTA button) ----
+  // ---- Site search (full-screen overlay) ----
   var searchToggle = document.getElementById('searchToggle');
   if(searchToggle){
     var searchPanel = document.getElementById('searchPanel');
     var searchInput = document.getElementById('searchInput');
     var searchResults = document.getElementById('searchResults');
+    var searchClose = document.getElementById('searchClose');
+    var searchQuickLinks = document.getElementById('searchQuickLinks');
     var isHome = !document.body.getAttribute('data-page') && !document.body.hasAttribute('data-nav-i18n-only');
     var prefix = isHome ? '' : 'index.html';
 
@@ -197,13 +199,8 @@
     function renderResults(query){
       searchResults.innerHTML = '';
       var q = query.trim().toLowerCase();
-      if(!q){
-        var hint = document.createElement('div');
-        hint.className = 'search-hint';
-        hint.textContent = 'Secteurs, filiales, actualités, comité de direction…';
-        searchResults.appendChild(hint);
-        return;
-      }
+      if(searchQuickLinks) searchQuickLinks.hidden = !!q;
+      if(!q) return;
       var matches = INDEX.filter(function(item){ return item.t.toLowerCase().indexOf(q) !== -1; }).slice(0, 7);
       if(!matches.length){
         var empty = document.createElement('div');
@@ -214,9 +211,10 @@
       }
       matches.forEach(function(item, i){
         var a = document.createElement('a');
-        a.className = 'search-result' + (i===0 ? ' hi' : '');
+        a.className = 'search-result';
+        a.style.setProperty('--i', i);
         a.href = item.u;
-        a.innerHTML = '<span class="search-result-title"></span><span class="search-result-cat"></span>';
+        a.innerHTML = '<span class="search-result-title"></span><span class="search-result-cat"></span><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8"/></svg>';
         a.querySelector('.search-result-title').textContent = item.t;
         a.querySelector('.search-result-cat').textContent = item.c;
         searchResults.appendChild(a);
@@ -227,18 +225,21 @@
       searchPanel.classList.add('open');
       searchToggle.classList.add('active');
       searchToggle.setAttribute('aria-expanded','true');
+      document.body.style.overflow = 'hidden';
       renderResults('');
-      setTimeout(function(){ searchInput.focus(); }, 50);
+      setTimeout(function(){ searchInput.focus(); }, 60);
     }
     function closeSearch(){
       searchPanel.classList.remove('open');
       searchToggle.classList.remove('active');
       searchToggle.setAttribute('aria-expanded','false');
       searchInput.value = '';
+      document.body.style.overflow = '';
     }
     searchToggle.addEventListener('click', function(){
       searchPanel.classList.contains('open') ? closeSearch() : openSearch();
     });
+    if(searchClose) searchClose.addEventListener('click', closeSearch);
     searchInput.addEventListener('input', function(){ renderResults(searchInput.value); });
     searchInput.addEventListener('keydown', function(e){
       if(e.key === 'Enter'){
@@ -247,15 +248,10 @@
       }
     });
     document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') closeSearch();
+      if(e.key === 'Escape' && searchPanel.classList.contains('open')) closeSearch();
       if((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)){
         e.preventDefault();
         searchPanel.classList.contains('open') ? closeSearch() : openSearch();
-      }
-    });
-    document.addEventListener('click', function(e){
-      if(!searchPanel.contains(e.target) && e.target !== searchToggle && !searchToggle.contains(e.target)){
-        closeSearch();
       }
     });
   }

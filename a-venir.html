@@ -92,13 +92,6 @@
         <button type="button" class="search-toggle" id="searchToggle" aria-label="Rechercher" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         </button>
-        <div class="search-panel" id="searchPanel">
-          <div class="search-field">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher sur le site" autocomplete="off" />
-          </div>
-          <div class="search-results" id="searchResults"></div>
-        </div>
       </div>
       <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -106,6 +99,32 @@
     </div>
   </div>
 </nav>
+<div class="search-overlay" id="searchPanel">
+  <div class="search-overlay-glow" aria-hidden="true"></div>
+  <svg class="search-overlay-mark" viewBox="0 0 44 24" aria-hidden="true">
+    <circle cx="15" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+    <circle cx="29" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+  </svg>
+  <button type="button" class="search-overlay-close" id="searchClose" aria-label="Fermer la recherche">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <div class="search-overlay-inner">
+    <div class="eyebrow on-dark">Recherche</div>
+    <h2 class="search-overlay-title">Que recherchez-vous&nbsp;?</h2>
+    <div class="search-overlay-field">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Secteurs, filiales, actualités, gouvernance…" autocomplete="off" />
+      <kbd>ESC</kbd>
+    </div>
+    <div class="search-quick-links" id="searchQuickLinks">
+      <a href="index.html#secteurs">Secteurs</a>
+      <a href="index.html#filiales">Filiales</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="mission.html#gouvernance">Gouvernance</a>
+    </div>
+    <div class="search-overlay-results" id="searchResults"></div>
+  </div>
+</div>
 <div class="nav-overlay" id="navOverlay"></div>
 <main>
 

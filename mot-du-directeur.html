@@ -92,13 +92,6 @@
         <button type="button" class="search-toggle" id="searchToggle" aria-label="Rechercher" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         </button>
-        <div class="search-panel" id="searchPanel">
-          <div class="search-field">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher sur le site" autocomplete="off" />
-          </div>
-          <div class="search-results" id="searchResults"></div>
-        </div>
       </div>
       <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -106,6 +99,32 @@
     </div>
   </div>
 </nav>
+<div class="search-overlay" id="searchPanel">
+  <div class="search-overlay-glow" aria-hidden="true"></div>
+  <svg class="search-overlay-mark" viewBox="0 0 44 24" aria-hidden="true">
+    <circle cx="15" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+    <circle cx="29" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+  </svg>
+  <button type="button" class="search-overlay-close" id="searchClose" aria-label="Fermer la recherche">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <div class="search-overlay-inner">
+    <div class="eyebrow on-dark">Recherche</div>
+    <h2 class="search-overlay-title">Que recherchez-vous&nbsp;?</h2>
+    <div class="search-overlay-field">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Secteurs, filiales, actualités, gouvernance…" autocomplete="off" />
+      <kbd>ESC</kbd>
+    </div>
+    <div class="search-quick-links" id="searchQuickLinks">
+      <a href="index.html#secteurs">Secteurs</a>
+      <a href="index.html#filiales">Filiales</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="mission.html#gouvernance">Gouvernance</a>
+    </div>
+    <div class="search-overlay-results" id="searchResults"></div>
+  </div>
+</div>
 <div class="nav-overlay" id="navOverlay"></div>
 <main>
 
@@ -127,8 +146,19 @@
     <div class="article-body">
       <p>Diriger le Fonds Souverain d'Investissements Stratégiques, c'est porter une responsabilité constamment présente à l'esprit&nbsp;: celle de faire fructifier ce qui appartient, au fond, à chaque Sénégalaise et à chaque Sénégalais.</p>
       <p>Le FONSIS est né en 2012, avec une conviction simple mais exigeante&nbsp;: notre économie se transformera avec des investissements capables de changer durablement la donne. Depuis, chaque projet structurant que nous accompagnons, nous cherchons à le porter en partenariat, avec des investisseurs privés nationaux et internationaux, parce qu'aucune transformation solide ne se construit seul.</p>
-      <p>Je reste guidé par les mêmes secteurs, quel que soit le dossier sur mon bureau&nbsp;: l'eau et l'énergie, l'agrobusiness, la santé et la pharma, les infrastructures et les transports. Et par le même rôle, à chaque fois&nbsp;: catalyser, structurer, co‑investir aux côtés de partenaires qui partagent notre exigence de résultat et de rentabilité de long terme.</p>
-      <p>Le Fonds adhère aux Principes de Santiago, qui régissent la gouvernance des plus grands fonds souverains membres du Fonds Monétaire International — un cadre exigeant, à la hauteur de la confiance qui nous est accordée.</p>
+      <p>Ce qui me tient particulièrement à cœur, c'est ce que ces investissements font naître sur le terrain&nbsp;: des entreprises qui grandissent, qui innovent, qui embauchent. Quand le FONSIS prend des participations, à travers ses fonds de capital-investissement, ce n'est jamais un simple pari financier. C'est la conviction profonde qu'une entreprise sénégalaise, bien accompagnée, peut devenir un champion de son secteur et créer un effet d'entrainement sur tout son écosystème.</p>
+      <p>Il y a aussi une responsabilité qui dépasse notre génération. Notre pays dispose de ressources naturelles qui doivent bénéficier aux générations actuelles et futures. C'est pourquoi l'État du Sénégal a créé le Fonds Intergénérationnel (FIG), alimenté chaque année par un minimum de 10&nbsp;% des revenus du pétrole et du gaz, et en a confié la gestion au FONSIS avec pour exigence qu'il soit géré conformément aux meilleurs standards internationaux.</p>
+    </div>
+    <figure class="article-photo-break">
+      <div class="frame">
+        <img src="assets/img/dg-desk.jpg" alt="Babacar Gning à son bureau, siège du FONSIS" class="lightbox-trigger" data-full="assets/img/dg-desk.jpg" tabindex="0" role="button" aria-label="Agrandir la photo" />
+      </div>
+    </figure>
+    <div class="article-body">
+      <p>L'objectif est simple&nbsp;: consacrer une partie de ces richesses, dès aujourd'hui, au financement d'infrastructures stratégiques pour le Sénégal de demain, tout en constituant progressivement une épargne nationale à léguer aux générations futures.</p>
+      <p>Rien de cela ne serait possible sans deux choses auxquelles je tiens profondément&nbsp;: l'envie constante d'innover dans notre façon d'investir, et une forte exigence de rigueur. C'est d'ailleurs cette exigence qui nous a conduits, depuis mars 2019, à rejoindre l'International Forum of Sovereign Wealth Funds et à souscrire à ses Principes de Santiago. Mais au-delà des textes, c'est l'engagement quotidien de nos équipes qui fait la vraie différence.</p>
+      <p>Ce nouveau site est pensé pour vous, que vous soyez déjà à nos côtés ou que vous souhaitiez nous rejoindre&nbsp;: partenaires, porteurs de projets, ou simplement curieux de comprendre notre rôle dans la transformation durable de l'économie nationale. Vous y trouverez nos activités, un espace pour nous soumettre vos demandes d'accompagnement, et la plateforme pour nous poser vos questions.</p>
+      <p>Le chemin vers 2050 s'écrit aujourd'hui, réalisation après réalisation. Je vous invite à le parcourir avec nous.</p>
       <p style="margin-top:36px; font-weight:600; color:var(--navy-deep);">Babacar Gning<br><span style="font-weight:400; color:var(--navy-mist); font-size:14px;">Directeur Général du FONSIS</span></p>
     </div>
     <div class="article-foot">

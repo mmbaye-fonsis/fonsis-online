@@ -93,13 +93,6 @@
         <button type="button" class="search-toggle" id="searchToggle" aria-label="Rechercher" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         </button>
-        <div class="search-panel" id="searchPanel">
-          <div class="search-field">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher sur le site" autocomplete="off" />
-          </div>
-          <div class="search-results" id="searchResults"></div>
-        </div>
       </div>
       <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -107,6 +100,32 @@
     </div>
   </div>
 </nav>
+<div class="search-overlay" id="searchPanel">
+  <div class="search-overlay-glow" aria-hidden="true"></div>
+  <svg class="search-overlay-mark" viewBox="0 0 44 24" aria-hidden="true">
+    <circle cx="15" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+    <circle cx="29" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+  </svg>
+  <button type="button" class="search-overlay-close" id="searchClose" aria-label="Fermer la recherche">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <div class="search-overlay-inner">
+    <div class="eyebrow on-dark">Recherche</div>
+    <h2 class="search-overlay-title">Que recherchez-vous&nbsp;?</h2>
+    <div class="search-overlay-field">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Secteurs, filiales, actualités, gouvernance…" autocomplete="off" />
+      <kbd>ESC</kbd>
+    </div>
+    <div class="search-quick-links" id="searchQuickLinks">
+      <a href="index.html#secteurs">Secteurs</a>
+      <a href="index.html#filiales">Filiales</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="mission.html#gouvernance">Gouvernance</a>
+    </div>
+    <div class="search-overlay-results" id="searchResults"></div>
+  </div>
+</div>
 <div class="nav-overlay" id="navOverlay"></div>
 
 <main id="top">
@@ -314,8 +333,11 @@
           </div>
         </div>
         <div class="dg-side">
-          <p data-i18n-html="dg_side_p1">Né en 2012 d'une conviction simple&nbsp;: transformer l'économie par des investissements qui changent durablement la donne, toujours en partenariat avec le secteur privé.</p>
-          <p class="cite mono" data-i18n="dg_cite">LOI N° 2012‑34 DU 27 DÉCEMBRE 2012</p>
+          <p data-i18n-html="dg_side_p1">Le FONSIS est né en 2012, avec une conviction simple mais exigeante&nbsp;: notre économie se transformera avec des investissements capables de changer durablement la donne. Depuis, chaque projet structurant que nous accompagnons, nous cherchons à le porter en partenariat, avec des investisseurs privés nationaux et internationaux, parce qu'aucune transformation solide ne se construit seul.</p>
+          <a class="dg-side-more" href="mot-du-directeur.html">
+            <span data-i18n="dg_more">Lire le mot du Directeur Général</span>
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -608,8 +630,9 @@
     gouv_eyebrow:"Gouvernance",
     dg_quote:"Diriger le Fonds Souverain d'Investissements Stratégiques, c'est porter une responsabilité constamment présente à l'esprit&nbsp;: celle de faire fructifier ce qui appartient, au fond, à chaque Sénégalaise et à chaque Sénégalais.",
     dg_role:"DIRECTEUR GÉNÉRAL DU FONSIS",
-    dg_side_p1:"Né en 2012 d'une conviction simple&nbsp;: transformer l'économie par des investissements qui changent durablement la donne, toujours en partenariat avec le secteur privé.",
+    dg_side_p1:"Le FONSIS est né en 2012, avec une conviction simple mais exigeante&nbsp;: notre économie se transformera avec des investissements capables de changer durablement la donne. Depuis, chaque projet structurant que nous accompagnons, nous cherchons à le porter en partenariat, avec des investisseurs privés nationaux et internationaux, parce qu'aucune transformation solide ne se construit seul.",
     dg_cite:"LOI N° 2012‑34 DU 27 DÉCEMBRE 2012",
+    dg_more:"Lire le mot du Directeur Général",
     team_eyebrow:"Comité de direction", team_h2:"L'équipe qui pilote la mise en œuvre",
     team1_role:"Directrice des Investissements", team2_role:"Secrétaire Général",
     team3_role:"Directrice Financière", team4_role:"Directeur Juridique & Conformité",
@@ -677,8 +700,9 @@
     gouv_eyebrow:"Governance",
     dg_quote:"Leading the Strategic Investment Sovereign Fund means carrying a responsibility that never leaves your mind&nbsp;: making what ultimately belongs to every Senegalese woman and man bear fruit.",
     dg_role:"CHIEF EXECUTIVE OFFICER OF FONSIS",
-    dg_side_p1:"Founded in 2012 on a simple conviction&nbsp;: transform the economy through investments that durably change the game, always in partnership with the private sector.",
+    dg_side_p1:"FONSIS was founded in 2012 on a simple but demanding conviction&nbsp;: our economy will be transformed by investments capable of durably changing the game. Every structuring project we support is carried out in partnership, with domestic and international private investors, because no solid transformation is built alone.",
     dg_cite:"LAW NO. 2012‑34 OF 27 DECEMBER 2012",
+    dg_more:"Read the CEO's message",
     team_eyebrow:"Executive committee", team_h2:"The team leading implementation",
     team1_role:"Director of Investments", team2_role:"Secretary General",
     team3_role:"Chief Financial Officer", team4_role:"Director of Legal & Compliance",
